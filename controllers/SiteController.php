@@ -5,7 +5,7 @@ use core\classes\Controller;
 
 class SiteController extends Controller {
 	public function actionIndex() {
-		$test = "TEST TEST TEST";
+		$test = "SiteController";
 		$this->render('index',[ 
 			'test' => $test,
 		]);

@@ -5,20 +5,20 @@ use core\classes\Request;
 
 class CommandFactory {
 	public static function build(Request $request) {
-		$name = $request->getValue('c');
-		if (!isset($name)) {
-			$name = 'default';
+		$controller_name = $request->c;
+		if (!isset($controller_name)) {
+			$controller_name = 'default';
 		}
-		$class = 'controllers\\'.ucfirst($name).'Controller';
-		if (!class_exists($class)) {
-			$class = 'controllers\\DefaultController';
+		$controller = 'controllers\\'.ucfirst($controller_name).'Controller';
+		if (!class_exists($controller)) {
+			$controller = 'controllers\\DefaultController';
 		}
-		$action = $request->getValue('a');
-		if (!isset($action)) {
-			$action = 'index';
+		$action_name = $request->a;
+		if (!isset($action_name)) {
+			$action_name = 'index';
 		}
-		$action = 'action'.ucfirst($action);
+		$action = 'action'.ucfirst($action_name);
 		
-		return new $class($name, $action);
+		return new $controller($controller_name, $action);
 	}
 }
