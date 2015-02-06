@@ -1,6 +1,6 @@
 <?php
 
 return [
-	'name' => 'My application Name',
+	'name' => 'Lightweight Framework',
 	'version' => '1.1.1',	
 ];
