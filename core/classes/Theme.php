@@ -11,6 +11,8 @@ class Theme implements ITheme {
 	protected static $_js = [];
 	protected static $_dependencies = [];
 	
+	public static function init() {}
+	
 	public static function register() {
 		foreach (self::$_css as $file) {
 			print self::registerCssFile($file);
@@ -20,31 +22,35 @@ class Theme implements ITheme {
 		}
 	}
 	
-	public static function addDependency($dependencies = []) {
+	public static function configure($config) {
+		if (!empty($config['css'])) {
+			self::initCss($config['css']);
+		}
+		if (!empty($config['js'])) {
+			self::initJs($config['js']);
+		}
+		if (!empty($config['dependency'])) {
+			self::addDependency($config['dependency']);
+		}
+	}
+	
+	protected static function addDependency($dependencies = []) {
 		foreach ($dependencies as $theme_name) {
 			$theme = 'themes\\'.$theme_name.'\\'.ucfirst($theme_name).'Theme';
 			$data = $theme::init();
-			if (!empty($data['css'])) {
-				$theme::initCss($data['css']);
-			}
-			if (!empty($data['js'])) {
-				$theme::initJs($data['js']);
-			}
-			if (!empty($data['dependency'])) {
-				$theme::addDependency($data['dependency']);
-			}
+			$theme::configure($data);
 			array_push(self::$_dependencies, $theme_name);
 		}
 	}
 	
-	public static function initCss($css = []) {
+	protected static function initCss($css = []) {
 		$theme = App::getAlias('themes').'/'.self::themeName().'/css';
 		foreach ($css as $value) {
 			array_push(self::$_css, $theme.'/'.$value);
 		}
 	}
 	
-	public static function initJs($js = []) {
+	protected static function initJs($js = []) {
 		$theme = App::getAlias('themes').'/'.self::themeName().'/js';
 		foreach ($js as $value) {
 			array_push(self::$_js, $theme.'/'.$value);

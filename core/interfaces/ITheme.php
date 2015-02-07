@@ -3,6 +3,8 @@
 namespace core\interfaces;
 
 interface ITheme {
+	public static function init();
+	
 	public static function register();
 	
 	public static function registerCssFile($file);

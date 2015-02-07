@@ -46,8 +46,4 @@ class Application {
 			print 'Error: '.$e->getCode().'. Message: '.$e->getMessage();
 		}
 	}
-	
-	private function setAlias($path) {
-		
-	}
 }

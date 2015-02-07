@@ -8,7 +8,7 @@ use App;
 
 class ThemeFactory implements IFactory {
 	public static function create() {
-		$theme = 'themes\\'.App::$entity->mainTheme.'\\'.ucfirst(App::$entity->mainTheme).'Theme';
-		$theme::init();
+		$config = AppTheme::init();
+		AppTheme::configure($config);
 	}
 }
