@@ -23,7 +23,16 @@ class Theme implements ITheme {
 	public static function addDependency($dependencies = []) {
 		foreach ($dependencies as $theme_name) {
 			$theme = 'themes\\'.$theme_name.'\\'.ucfirst($theme_name).'Theme';
-			$theme::init();
+			$data = $theme::init();
+			if (!empty($data['css'])) {
+				$theme::initCss($data['css']);
+			}
+			if (!empty($data['js'])) {
+				$theme::initJs($data['js']);
+			}
+			if (!empty($data['dependency'])) {
+				$theme::addDependency($data['dependency']);
+			}
 			array_push(self::$_dependencies, $theme_name);
 		}
 	}
@@ -56,10 +65,8 @@ class Theme implements ITheme {
 	}
 	
 	public static function themeName() {
-		$themeName = explode('\\', get_called_class());
-		$themeName = $themeName[count($themeName) - 1];
-		$themeName = substr($themeName, 0, strpos($themeName, 'Theme'));
-		$themeName = strtolower($themeName);
-		return $themeName;
+		$className = get_called_class();
+		$from = strpos($className, "\\") + 1;
+		return strtolower(substr($className, $from, strrpos($className, "\\") - $from));
 	}
 }

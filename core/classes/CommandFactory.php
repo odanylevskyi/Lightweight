@@ -3,11 +3,11 @@ namespace core\classes;
 
 use core\classes\Request;
 use core\interfaces\IFactory;
+use App;
 
 class CommandFactory implements IFactory {
-	public static function create(){}
-	
-	public static function build(Request $request) {
+	public static function create() {
+		$request = App::$entity->request;
 		$controller_name = $request->c;
 		if (!isset($controller_name)) {
 			$controller_name = 'default';

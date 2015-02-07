@@ -7,16 +7,15 @@ use App;
 
 class BootstrapTheme extends Theme {
 	public static function init () {
-		$css = [
-			'bootstrap-theme.css',
-			'bootstrap.css',
+		return [
+			'css' => [
+				'bootstrap-theme.css',
+				'bootstrap.css',
+			],
+			'js' => [
+				'bootstrap.js',
+			],
+			'dependency' => [],
 		];
-		
-		$js = [
-			'bootstrap.js',
-		];
-		
-		self::initCss($css);
-		self::initJs($js);
 	}
 }

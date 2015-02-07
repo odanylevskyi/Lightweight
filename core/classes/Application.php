@@ -39,7 +39,7 @@ class Application {
 		$this->request = new Request();
 
 		ThemeFactory::create();
-		$controller = CommandFactory::build($this->request);
+		$controller = CommandFactory::create();
 		try {
 			$controller->execute();
 		} catch (\ErrorException $e) {
