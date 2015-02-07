@@ -14,12 +14,14 @@ class Theme implements ITheme {
 	public static function init() {}
 	
 	public static function register() {
+		$output = "";
 		foreach (self::$_css as $file) {
-			print self::registerCssFile($file);
+			$output .= self::registerCssFile($file);
 		}
 		foreach (self::$_js as $file) {
-			print self::registerJsFile($file);
+			$output .= self::registerJsFile($file);
 		}
+		return $output;
 	}
 	
 	public static function configure($config) {
