@@ -1,6 +1,11 @@
+<?php 
+	use themes\app\AppTheme;
+?>
+
 <!DOCTYPE html>
 <html lang="ru" style="height: 100%;">
 <head>
+	<?php AppTheme::register(); ?>
     <title><?= App::$entity->name; ?></title>
 </head>
 <body style="height: 100%;">

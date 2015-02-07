@@ -4,8 +4,9 @@ namespace core\classes;
 
 use core\classes\View;
 use ErrorException;
+use core\classes\Object;
 
-class Controller {
+class Controller extends Object{
 	private $_name = 'default';
 	private $_layout = 'main';
 	private $_action = 'index';
