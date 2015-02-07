@@ -2,11 +2,10 @@
 
 namespace themes\app;
 
-use themes\bootstrap\BootstrapTheme;
+use core\classes\Theme;
 
-class AppTheme extends BootstrapTheme {
+class AppTheme extends Theme {
 	public static function init() {
-		parent::init();
 		//do something
 	}
 }

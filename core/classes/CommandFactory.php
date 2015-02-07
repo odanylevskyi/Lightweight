@@ -2,8 +2,11 @@
 namespace core\classes;
 
 use core\classes\Request;
+use core\interfaces\Factory;
 
-class CommandFactory {
+class CommandFactory implements Factory {
+	public static function create(){}
+	
 	public static function build(Request $request) {
 		$controller_name = $request->c;
 		if (!isset($controller_name)) {

@@ -9,8 +9,9 @@ class Application {
 	private $_properties = array();
 	
 	public function __construct($config = []) {
-		$this->configure($config);
+		$this->configure($config['app']);
 		App::create($this);
+		ThemeFactory::create();
 	}
 	
 	public function configure($config) {
@@ -28,8 +29,8 @@ class Application {
 	}
 	
 	public function __get($key) {
-		if (isset($this->_properties['app'][$key])) {
-			return $this->_properties['app'][$key];
+		if (isset($this->_properties[$key])) {
+			return $this->_properties[$key];
 		} else {
 			throw new Exception("The key '$name' does not exists.");
 		}
