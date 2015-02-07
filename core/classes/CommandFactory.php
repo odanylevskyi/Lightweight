@@ -2,9 +2,9 @@
 namespace core\classes;
 
 use core\classes\Request;
-use core\interfaces\Factory;
+use core\interfaces\IFactory;
 
-class CommandFactory implements Factory {
+class CommandFactory implements IFactory {
 	public static function create(){}
 	
 	public static function build(Request $request) {
