@@ -11,7 +11,6 @@ class Application {
 	public function __construct($config = []) {
 		$this->configure($config['app']);
 		App::create($this);
-		ThemeFactory::create();
 	}
 	
 	public function configure($config) {
@@ -38,7 +37,8 @@ class Application {
 	
 	public function run() {
 		$this->request = new Request();
-		
+
+		ThemeFactory::create();
 		$controller = CommandFactory::build($this->request);
 		try {
 			$controller->execute();

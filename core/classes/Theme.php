@@ -9,26 +9,37 @@ use core\interfaces\IObject;
 class Theme implements ITheme {
 	protected static $_css = [];
 	protected static $_js = [];
+	protected static $_dependencies = [];
 	
 	public static function register() {
-		$themesName = self::themeName();
-		$themesPath = App::getAlias('themes').'/'.$themesName;
 		foreach (self::$_css as $file) {
-			$cssPath = $themesPath.'/css/'.$file;
-			print self::registerCssFile($cssPath);
+			print self::registerCssFile($file);
 		}
 		foreach (self::$_js as $file) {
-			$jsPath = $themesPath.'/js/'.$file;
-			print self::registerJsFile($jsPath);
+			print self::registerJsFile($file);
+		}
+	}
+	
+	public static function addDependency($dependencies = []) {
+		foreach ($dependencies as $theme_name) {
+			$theme = 'themes\\'.$theme_name.'\\'.ucfirst($theme_name).'Theme';
+			$theme::init();
+			array_push(self::$_dependencies, $theme_name);
 		}
 	}
 	
 	public static function initCss($css = []) {
-		self::$_css = $css;
+		$theme = App::getAlias('themes').'/'.self::themeName().'/css';
+		foreach ($css as $value) {
+			array_push(self::$_css, $theme.'/'.$value);
+		}
 	}
 	
 	public static function initJs($js = []) {
-		self::$_js = $js;
+		$theme = App::getAlias('themes').'/'.self::themeName().'/js';
+		foreach ($js as $value) {
+			array_push(self::$_js, $theme.'/'.$value);
+		}
 	}
 	
 	public static function registerCssFile($file) {

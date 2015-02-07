@@ -1,13 +1,11 @@
 <?php 
 	use themes\app\AppTheme;
-	use themes\bootstrap\BootstrapTheme;
 ?>
 
 <!DOCTYPE html>
 <html lang="ru" style="height: 100%;">
 <head>
-	<?php BootstrapTheme::register(); ?>
-	<?php //AppTheme::register(); ?>
+	<?php AppTheme::register(); ?>
     <title><?= App::$entity->name; ?></title>
 </head>
 <body style="height: 100%;">

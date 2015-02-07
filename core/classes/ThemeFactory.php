@@ -8,8 +8,7 @@ use App;
 
 class ThemeFactory implements Factory {
 	public static function create() {
-		$theme = 'themes\\'.App::$entity->theme.'\\'.ucfirst(App::$entity->theme).'Theme';
+		$theme = 'themes\\'.App::$entity->mainTheme.'\\'.ucfirst(App::$entity->mainTheme).'Theme';
 		$theme::init();
-		AppTheme::init();
 	}
 }

@@ -6,6 +6,16 @@ use core\classes\Theme;
 
 class AppTheme extends Theme {
 	public static function init() {
-		//do something
+		$dependency = [
+			'bootstrap',
+		];
+		$css = [
+			'main.css',
+		];
+		$js = [];
+		
+		self::addDependency($dependency);
+		self::initCss($css);
+		self::initJs($js);
 	}
 }
