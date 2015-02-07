@@ -2,6 +2,6 @@
 
 namespace core\interfaces;
 
-interface Factory {
+interface IFactory {
 	public static function create();
 }
