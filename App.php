@@ -1,7 +1,11 @@
 <?php
 
+use core\classes\Application;
+
 class App {
+	
 	public static $entity;
+	public static $appTheme = 'lightweight';
 	
 	private static $_aliases;
 	
@@ -9,9 +13,26 @@ class App {
 		return self::$_aliases[$alias];
 	}
 	
-	public static function create($object) {
+	public static function create(Application $object) {
 		self::$entity = $object;
-		self::$_aliases = [
+		self::$_aliases = self::initAliases();
+	}
+	
+	public static function getAppMainTheme() {
+		return 'lightweight';
+	}
+	
+	public static function setAppMainTheme($themeName) {
+		self::$appTheme = $themeName;
+	}
+	
+	public static function getVersion() {
+		return '0.0.1';
+	}
+	
+	
+	private static function initAliases() {
+		return [
 			'app' => __DIR__,
 			'core' => '/core',
 			'themes' => '/themes',
