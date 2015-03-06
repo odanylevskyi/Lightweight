@@ -2,5 +2,5 @@
 
 return [
 	'name' => 'Lightweight Framework',
-	'theme' => 'bootstrap',
+	'theme' => 'helios',
 ];

@@ -2,10 +2,9 @@
 
 return [
 	'db' => [
-		'class' => '',
-		'dsn' => 'mysql:host=localhost;dbname=cybdev',
+		'dsn' => 'mysql:host=localhost;dbname=cybdev;charset=utf8',
 		'username' => 'root',
 		'password' => 'groamdl',
-		'charset' => 'utf8',
+		'options' => [],
 	],
 ];

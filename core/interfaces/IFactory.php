@@ -3,5 +3,5 @@
 namespace core\interfaces;
 
 interface IFactory {
-	public static function create();
+	public static function create($options = '');
 }

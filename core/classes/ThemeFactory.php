@@ -7,9 +7,11 @@ use themes\app\AppTheme;
 use App;
 
 class ThemeFactory implements IFactory {
-	public static function create() {
-		$config = AppTheme::init();
-		$config['dependency'][] = App::getAppMainTheme();
-		AppTheme::configure($config);
+	public static function create($options = '') {
+		$themeName = App::getAppMainTheme();
+		$theme = 'themes\\'.$themeName.'\\'.ucfirst($themeName).'Theme';
+		$config = $theme::init();
+// 		$config['dependency'][] = App::getAppMainTheme();
+		$theme::configure($config);
 	}
 }

@@ -6,7 +6,7 @@ use core\interfaces\IFactory;
 use App;
 
 class CommandFactory implements IFactory {
-	public static function create() {
+	public static function create($options = '') {
 		$request = App::$entity->request;
 		$controller_name = $request->c;
 		if (!isset($controller_name)) {

@@ -1,11 +1,12 @@
 <?php 
 	use themes\app\AppTheme;
+	use themes\lightweight\LightweightTheme;
 ?>
 
 <!DOCTYPE html>
 <html lang="ru" style="height: 100%;">
 <head>
-	<?= AppTheme::register(); ?>
+	<?= LightweightTheme::register(); ?>
     <title><?= App::$entity->name; ?></title>
 </head>
 <body style="height: 100%;">

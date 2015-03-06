@@ -5,7 +5,6 @@ use core\classes\Application;
 class App {
 	
 	public static $entity;
-	public static $appTheme = 'lightweight';
 	
 	private static $_aliases;
 	
@@ -19,7 +18,7 @@ class App {
 	}
 	
 	public static function getAppMainTheme() {
-		return 'lightweight';
+		return self::$entity->theme;
 	}
 	
 	public static function setAppMainTheme($themeName) {
@@ -35,12 +34,14 @@ class App {
 		return [
 			'app' => __DIR__,
 			'core' => '/core',
-			'themes' => '/themes',
+			'themesDir' => '/themes',
+			'themes' => '/themes/'.self::$entity->theme,
 			'basePath' => '/',
 			'fullPath' => __DIR__,
 			'models' => '/models',
 			'controllers' => '/controllers',
-			'views' => '/views',
+			'views' => '/themes/'.self::$entity->theme.'/views',
+			'images' => '/themes/'.self::$entity->theme.'/images/',
 			'blocks' => '/blocks',
 		];
 	}

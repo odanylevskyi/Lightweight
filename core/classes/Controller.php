@@ -8,8 +8,8 @@ use core\classes\Object;
 
 class Controller extends Object{
 	private $_name = 'default';
-	private $_layout = 'main';
-	private $_action = 'index';
+	protected $_layout = 'main';
+	protected $_action = 'index';
 	
 	public function __construct($name, $action) {
 		$this->_name = $name;

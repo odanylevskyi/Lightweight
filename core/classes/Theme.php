@@ -15,11 +15,12 @@ class Theme implements ITheme {
 	
 	public static function register() {
 		$output = "";
-		foreach (self::$_css as $file) {
-			$output .= self::registerCssFile($file);
-		}
 		foreach (self::$_js as $file) {
 			$output .= self::registerJsFile($file);
+		}
+
+		foreach (self::$_css as $file) {
+			$output .= self::registerCssFile($file);
 		}
 		return $output;
 	}
@@ -46,14 +47,14 @@ class Theme implements ITheme {
 	}
 	
 	protected static function initCss($css = []) {
-		$theme = App::getAlias('themes').'/'.self::themeName().'/css';
+		$theme = App::getAlias('themesDir').'/'.self::themeName().'/css';
 		foreach ($css as $value) {
 			array_push(self::$_css, $theme.'/'.$value);
 		}
 	}
 	
 	protected static function initJs($js = []) {
-		$theme = App::getAlias('themes').'/'.self::themeName().'/js';
+		$theme = App::getAlias('themesDir').'/'.self::themeName().'/js';
 		foreach ($js as $value) {
 			array_push(self::$_js, $theme.'/'.$value);
 		}
