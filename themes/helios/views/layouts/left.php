@@ -4,7 +4,8 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Left Sidebar - Helios by HTML5 UP</title>
+		<title>Left Sidebar | <?= App::$entity->name;?></title>
+		<link rel="shortcut icon" href="<?= App::getAlias('images')?>/favicon.png" type="image/png">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -18,7 +19,7 @@
 				<!-- Inner -->
 					<div class="inner">
 						<header>
-							<h2><a href="index.php?c=site" id="logo"><?= $content; ?></a></h2>
+							<h2><a href="index.php?c=site" id="logo"><?= $content;?></a></h2>
 						</header>
 					</div>
 				

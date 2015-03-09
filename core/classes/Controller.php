@@ -29,7 +29,7 @@ class Controller extends Object{
 		
 		$content = $view->renderFile($params);
 		$output = $view->renderLayout($this->_layout, ['content' => $content]);
-		print $output;
+		echo $output;
 	}
 	
 	

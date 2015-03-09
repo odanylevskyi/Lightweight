@@ -5,7 +5,7 @@ use core\classes\Application;
 class App {
 	
 	public static $entity;
-	
+	private static $db_connections = [];
 	private static $_aliases;
 	
 	public static function getAlias($alias) {
@@ -14,7 +14,14 @@ class App {
 	
 	public static function create(Application $object) {
 		self::$entity = $object;
+		foreach (self::$entity->getDbConnections() as $name => $dbEntity) {
+			self::$db_connections[$name] = $dbEntity;
+		}
 		self::$_aliases = self::initAliases();
+	}
+	
+	public static function __callStatic($name, $arguments = '') {
+		return self::$db_connections[$name];
 	}
 	
 	public static function getAppMainTheme() {

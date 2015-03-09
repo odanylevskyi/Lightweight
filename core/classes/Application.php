@@ -13,7 +13,6 @@ class Application {
 	public function __construct($config = []) {
 		$this->configure($config['app']);
 		$this->configureDb($config['db']);
-		App::create($this);
 	}
 	
 	private function configureDb($config) {
@@ -37,17 +36,20 @@ class Application {
 	public function __get($key) {
 		if (isset($this->_properties[$key])) {
 			return $this->_properties[$key];
-		} else if (isset($this->_db[$key])) {
-			return $this->_db[$key];
 		} else {
 			throw new Exception("The key '$name' does not exists.");
 		}
 	}
 	
+	public function getDbConnections() {
+		return $this->_db;
+	}
+	
 	public function run() {
 		$this->request = new Request();
-		
 		$this->_db = DbFactory::create($this->_db_config);
+
+		App::create($this);
 		
 		ThemeFactory::create();
 		$controller = CommandFactory::create();

@@ -5,6 +5,7 @@
 <html>
 	<head>
 		<title><?= App::$entity->name; ?></title>
+		<link rel="shortcut icon" href="<?= App::getAlias('images')?>/favicon.png" type="image/png">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -16,7 +17,8 @@
 				<!-- Inner -->
 					<div class="inner">
 						<header style="padding: 0px 20%">
-							<h2><a href="index.html" id="logo">Путишествуй</a></h2>
+							<h2><a href="index.html" id="logo">
+			<?= $content; ?>Путишествуй</a></h2>
 							<p>Найди место, которое подойдет именно тебе</p>
 							<hr>
 						<article>						
