@@ -8,6 +8,7 @@
 <html>
 	<head>
 		<title>Right Sidebar - Helios by HTML5 UP</title>
+		<link rel="shortcut icon" href="<?= App::getAlias('images')?>/favicon.png" type="image/png">
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -23,7 +24,7 @@
 				<!-- Inner -->
 					<div class="inner">
 						<header>
-							<h2><a href="index.php" id="logo"><?= $content; ?></a></h2>
+							<h2><a href="index.php" id="logo"></a></h2>
 						</header>
 					</div>
 				
@@ -31,26 +32,26 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="index.php?c=default">Home</a></li>
-							<li>
-								<a href="">Dropdown</a>
-								<ul>
-									<li><a href="#">Lorem ipsum dolor</a></li>
-									<li><a href="#">Magna phasellus</a></li>
-									<li><a href="#">Etiam dolore nisl</a></li>
-									<li>
-										<a href="">And a submenu &hellip;</a>
-										<ul>
-											<li><a href="#">Lorem ipsum dolor</a></li>
-											<li><a href="#">Phasellus consequat</a></li>
-											<li><a href="#">Magna phasellus</a></li>
-											<li><a href="#">Etiam dolore nisl</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Veroeros feugiat</a></li>
-								</ul>
-							</li>
-							<li><a href="left-sidebar.html">Left Sidebar</a></li>
-							<li><a href="right-sidebar.html">Right Sidebar</a></li>
+<!-- 							<li> -->
+<!-- 								<a href="">Dropdown</a> -->
+<!-- 								<ul> -->
+<!-- 									<li><a href="#">Lorem ipsum dolor</a></li> -->
+<!-- 									<li><a href="#">Magna phasellus</a></li> -->
+<!-- 									<li><a href="#">Etiam dolore nisl</a></li> -->
+<!-- 									<li> -->
+<!-- 										<a href="">And a submenu &hellip;</a> -->
+<!-- 										<ul> -->
+<!-- 											<li><a href="#">Lorem ipsum dolor</a></li> -->
+<!-- 											<li><a href="#">Phasellus consequat</a></li> -->
+<!-- 											<li><a href="#">Magna phasellus</a></li> -->
+<!-- 											<li><a href="#">Etiam dolore nisl</a></li> -->
+<!-- 										</ul> -->
+<!-- 									</li> -->
+<!-- 									<li><a href="#">Veroeros feugiat</a></li> -->
+<!-- 								</ul> -->
+<!-- 							</li> -->
+							<li><a href="index.php">Left Sidebar</a></li>
+							<li><a href="index.php">Right Sidebar</a></li>
 							<li><a href="index.php?c=site&a=test">No Sidebar</a></li>
 						</ul>
 					</nav>
@@ -65,6 +66,7 @@
 						<div class="8u" id="content">
 							<article id="main">
 								<header>
+									<?= $content; ?>
 									<h2><a href="#">Right Sidebar</a></h2>
 									<p>
 										Morbi convallis lectus malesuada sed fermentum dolore amet

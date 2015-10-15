@@ -1,1 +1,1 @@
-<?php echo $article->title; ?>
+<?php var_dump($articles); ?>

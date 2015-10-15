@@ -14,7 +14,7 @@
 
 	body
 	{
-		background: #f0f4f4;
+		background: #ffffff; /*#f0f4f4;*/
 		color: #5b5b5b;
 	}
 
@@ -689,13 +689,12 @@
 	#header
 	{
 		position: relative;
-		background-image: url('../images/header.jpg');
 		background-size: cover;
 		background-position: center center;
 		background-attachment: fixed;
 		color: #fff;
 		text-align: center;
-		padding: 2.5em 0 2em 0;
+		padding: 2.5em 0 10em 0;
 		cursor: default;
 	}
 
@@ -707,8 +706,8 @@
 			.homepage #header .overlay
 			{
 				content: '';
-				background: #1C0920;
 				display: block;
+        background: #fff;
 				position: absolute;
 				left: 0;
 				top: 0;
@@ -812,14 +811,17 @@
 
 	#nav
 	{
-		position: absolute;
-		top: 0;
-		left: 0;
+  	position: absolute;
+		top: 0px;
+		left: 0px;
 		width: 100%;
 		text-align: center;
-		padding: 1.5em 0 1.5em 0;
 		z-index: 1;
 		overflow: hidden;
+		background-color: #008DF5;
+		padding: 20px 0px;
+		border-bottom: 2px solid white;
+    border-top: 2px solid white;
 	}
 	
 		#nav > ul
@@ -875,6 +877,9 @@
 				transition: color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 			}
 			
+			#nav > ul > li:hover {
+			   background-color: #0077FF;
+			}
 				#nav > ul > li.active
 				{
 					border-color: rgba(192,192,192,0.35);

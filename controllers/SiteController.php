@@ -8,10 +8,10 @@ class SiteController extends Controller {
 	protected $_layout = 'right';
 	
 	public function actionIndex() {
-		$article = new Article(25);
+		$article = new Article();
 		
 		$this->render('index',[ 
-			'article' => $article,
+			'articles' => 'test',
 		]);
 	}
 	

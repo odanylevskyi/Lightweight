@@ -6,6 +6,6 @@ use core\interfaces\IObject;
 
 class Object implements IObject {
 	public static function className() {
-		return __CLASS__;
+		return get_called_class();
 	}
 }

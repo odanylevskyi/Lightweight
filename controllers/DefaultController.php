@@ -12,4 +12,11 @@ class DefaultController extends Controller {
 			'test' => $test,
 		]);
 	}
+	
+	public function actionLogin() {
+		$this->_layout = 'main';
+		$this->render('index',[
+				'test' => 'TEST',
+		]);
+	}
 }

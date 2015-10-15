@@ -3,6 +3,7 @@ namespace core\classes;
 
 use App;
 use Exception;
+use core\classes\db\DbFactory;
 
 class Application {
 	public  $request;

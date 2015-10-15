@@ -1,7 +1,7 @@
 <?php
 namespace models;
 
-use core\classes\DbObject;
+use core\classes\db\DbObject;
 
 class Article extends DbObject {
 	

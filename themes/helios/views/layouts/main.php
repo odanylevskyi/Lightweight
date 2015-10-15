@@ -1,5 +1,12 @@
 <?php 
 	use themes\helios\HeliosTheme;
+	
+	$images = [
+			0 => App::getAlias('images')."/header.jpg",
+			1 => App::getAlias('images')."/header1.jpg",
+			2 => App::getAlias('images')."/header2.jpg",
+	];
+	$i = rand(0, 2);
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -13,12 +20,11 @@
 	</head>
 	<body class="homepage">
 		<!-- Header -->
-			<div id="header">
+			<div id="header" style="background-image:url('<?=$images[$i]?>');background-color: #fff;">
 				<!-- Inner -->
 					<div class="inner">
 						<header style="padding: 0px 20%">
-							<h2><a href="index.html" id="logo">
-			<?= $content; ?>Путишествуй</a></h2>
+							<h2><a href="index.html" id="logo">Путишествуй</a></h2>
 							<p>Найди место, которое подойдет именно тебе</p>
 							<hr>
 						<article>						
@@ -58,14 +64,14 @@
 						</article>
 						</header>
 						<footer>
-							<a href="#banner" class="button circled scrolly">Поиск</a>
+							<a href="#banner" class="button circled scrolly">Далее</a>
 						</footer>
 					</div>
 				
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Главная</a></li>
+							<li><a href="index.php?c=default">Главная</a></li>
 							<!-- <li>
 								<a href="">Dropdown</a>
 								<ul>
@@ -84,14 +90,14 @@
 									<li><a href="#">Veroeros feugiat</a></li>
 								</ul>
 							</li> -->
-							<li><a href="index.php?c=default">Сервисы</a></li>
-							<li><a href="right-sidebar.html">Люди</a></li>
-							<li><a href="no-sidebar.html">Статьи</a></li>
-							<li><a href="no-sidebar.html">Новости</a></li>
-							<li><a href="no-sidebar.html">Рестораны</a></li>
-							<li><a href="no-sidebar.html">Билеты</a></li>
-							<li><a href="no-sidebar.html">Отели</a></li>
-							<li><a href="no-sidebar.html">О нас</a></li>
+							<li><a href="index.php?c=default&a=login">Сервисы</a></li>
+							<li><a href="index.php?c=site&a=index">Люди</a></li>
+							<li><a href="index.php?c=site&a=test">Статьи</a></li>
+							<li><a href="index.php?c=default">Новости</a></li>
+							<li><a href="index.php?c=default">Рестораны</a></li>
+							<li><a href="index.php?c=default">Билеты</a></li>
+							<li><a href="index.php?c=default">Отели</a></li>
+							<li><a href="index.php?c=default">О нас</a></li>
 						</ul>
 					</nav>
 

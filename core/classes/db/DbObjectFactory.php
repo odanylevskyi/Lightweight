@@ -1,5 +1,5 @@
 <?php
-namespace core\classes;
+namespace core\classes\db;
 
 use core\interfaces\IFactory;
 

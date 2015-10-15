@@ -1,7 +1,8 @@
 <?php
-namespace core\classes;
+namespace core\classes\db;
 
 use core\interfaces\IObject;
+use core\classes\Object;
 use App;
 
 class DbObject extends Object {
@@ -13,7 +14,7 @@ class DbObject extends Object {
 		$this->connector = $this->getDb();
 		$this->table = $this->getTableName();
 		if (!is_null($id) && is_int($id)) {
-			$this->attributes = $this->find($id);
+			$this->attributes = $this->find(['id' => $id]);
 		}
 	}
 	
@@ -39,7 +40,21 @@ class DbObject extends Object {
 		}
 	}
 	
-	public function find($id) {
-		return $this->connector->query("select * from {$this->table} where id = {$id}")->fetch();
+	public function find($options = null) { 
+		$query = new Query($this->connector);
+		if (!is_null($options) && is_array($options)) {
+			return $query->select()->from($this->table)->where($options)->one();			
+		} else {
+			return $query;
+		} 
+	}
+	
+	public function findAll($options = null) {
+		$query = new Query($this->connector);
+		if (!is_null($options) && is_array($options)) {
+			return $query->select()->from($this->table)->where($options)->all();
+		} else {
+			return $query;
+		}
 	}
 }
